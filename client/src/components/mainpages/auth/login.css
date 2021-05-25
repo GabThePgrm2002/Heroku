@@ -1,0 +1,71 @@
+.m150{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.login{
+    background-color: var(--white);
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 30px var(--gShadow);
+    padding: 100px;
+    border-radius: 20px;
+}
+
+.form-control{
+    border: 0;
+    border-radius: 0;
+    border-bottom: solid 2px #aaa;
+}
+
+.text-green{
+    color: var(--green);
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.form_link{
+    padding: 10px 25px;
+    background-color: var(--black);
+    color: var(--white) !important;
+    text-transform: uppercase;
+}
+
+.form_btn{
+    border: 0;
+    padding: 10px 25px;
+    background-color: var(--gShadow) !important;
+    color: var(--white);
+    text-transform: uppercase; 
+}
+
+@media screen and (max-width: 1199px){
+    .register{
+        max-width: 70%;
+    }
+}
+
+@media screen and (max-width: 991px){
+    .register{
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .register{
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .register{
+        max-width: 90%;
+        padding: 50px 30px;
+    }
+}

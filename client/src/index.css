@@ -1,0 +1,203 @@
+:root{
+  --green: #23CE6B;
+  --dGreen: #0C4524;
+  --gShadow: #157A3F;
+  --black: #111111;
+  --white: #FFFFFF;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Work+Sans:wght@500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Work Sans', sans-serif;
+}
+html,body{
+  background-color: var(--green);
+  overflow-x: hidden !important;
+}
+
+a{
+  text-decoration: none !important;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  display: none !important;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--dGreen); 
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white); 
+}
+
+.page-title{
+  color: var(--white);
+  font-weight: bold;
+  font-size: 3.2rem;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 100px;
+  font-family: 'Montserrat', sans-serif;
+}
+.loader{
+  position: relative;
+}
+.loader:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 80px;
+  background-color: var(--white);
+  animation: blinkCursor 0.8s steps(3) infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 75%{
+      opacity: 1;
+    }
+    76%, 100%{
+      opacity: 0;
+    }
+}
+
+.page-title-loading{
+  position: relative;
+  color: var(--white);
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 4em;
+  margin-top: 0px;
+  margin-bottom: 100px;
+  font-family: 'Montserrat', sans-serif;
+  animation: typing 3.5s steps(10) infinite;
+  overflow: hidden;
+}
+
+@keyframes typing {
+  0%, 90%, 100%{
+    width: 0;
+  }
+  30%,60%{
+    width: 400px;
+  }
+}
+
+.center-block-loading{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.center-block-message{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 150px;
+}
+.img_not_found{
+  width: 500px;
+  height: 400px;
+}
+.img_auth{
+  position: relative;
+  width: 350px;
+  height: 250px;
+  margin-bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.not_found_link{
+  text-transform: uppercase;
+  color: var(--white) !important;
+  padding: 20px 35px;
+  background-color: var(--gShadow);
+  margin-top: 50px;
+  font-weight: bold;
+  border-radius: 20px;
+  transition: .6s;
+}
+.not_found_link:hover{
+  background-color: var(--white);
+  color: var(--gShadow) !important;
+  transition: .6s;
+}
+.title-green-shadow{
+  color: var(--gShadow) !important;
+  font-family: 'Montserrat', sans-serif;
+}
+.m100{
+  margin-top: 50px;
+}
+
+.mt-100{
+  margin-top: 100px;
+}
+.mt-200{
+  margin-top: 200px;
+}
+.bg-white{
+  background-color: var(--white) !important;
+}
+.p-50{
+  padding: 50px;
+}
+.text-white{
+  color: var(--white) !important;
+}
+
+@media screen and (max-width: 576px) {
+  .page-title{
+    font-size: 2.4rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .landing{
+    display: none;
+  }
+  .products{
+    margin-top: 200px;
+  }
+}
+
+/* ---------- Header ---------- */
+@import url(./components/headers/header.css);
+
+/* ---------- Footer ---------- */
+@import url(./components/mainpages/utils/footer/footer.css);
+
+/* ---------- Products ---------- */
+@import url(./components/mainpages/products/products.css);
+
+/* ---------- Detail Products ---------- */
+@import url(./components/mainpages/detailProduct/detailProduct.css);
+
+/* ---------- Login ---------- */
+@import url(./components/mainpages/auth/login.css);
+
+/* ---------- Register ---------- */
+@import url(./components/mainpages/auth/register.css);
+
+/* ---------- Cart ---------- */
+@import url(./components/mainpages/cart/cart.css);
+
+/* ---------- Order History ---------- */
+@import url(./components/mainpages/history/orderHistory.css);
+
+/* ---------- Manage Categories ---------- */
+@import url(./components/mainpages/categories/categories.css);
+
+/* ---------- Create Product ---------- */
+@import url(./components/mainpages/createProduct/createProduct.css);
