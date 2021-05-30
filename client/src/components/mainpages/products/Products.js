@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import ProductItem from '../utils/productItem/ProductItem';
 import Shopping from './shopping.svg'
@@ -6,8 +6,14 @@ import swal from 'sweetalert';
 import axios from 'axios'
 import Filters from './Filters'
 import LoadMore from './LoadMore'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 function Products() {
+
+    useEffect(() => {
+        AOS.init({duration: 750})
+    })
 
     const state = useContext(GlobalState)
     const [products, setProducts] = state.productsAPI.products
@@ -70,18 +76,18 @@ function Products() {
     }
 
     return (
-        <>
+        <React.Fragment>
         <div className="container landing">
-            <img className="landing-img" src={Shopping} />
+            <img className="landing-img" src={Shopping} alt="" />
             
         </div>
         <div className="products">
-            <h1 className="page-title">Products Catalog</h1>
+            <h1 data-aos="fade-in" className="page-title">Products Catalog</h1>
             <div className="container text-center">
 
                 {
                     isAdmin &&
-                    <div className="delete-all">
+                    <div data-aos="zoom-in" className="delete-all">
                         <div className="check-div">
                         <span>Select all&nbsp;&nbsp;</span>
                         <input type="checkbox" id="check-all" checked={isCheck} onChange={checkAll} />
@@ -94,16 +100,18 @@ function Products() {
 
                 <div className="row">
                 {
-               products.map(product => {
-                   return <ProductItem key={product._id} product={product} isAdmin={isAdmin} deleteProduct={deleteProduct} handleCheck={handleCheck} />
-               })
-           }
+                   products.map(product => {
+                   return <ProductItem key={product._id} 
+                   product={product} isAdmin={isAdmin} 
+                   deleteProduct={deleteProduct} handleCheck={handleCheck} />
+                   })
+                }
                 </div>
                 <LoadMore />
             </div> 
 
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

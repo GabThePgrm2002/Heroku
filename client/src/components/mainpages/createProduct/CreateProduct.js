@@ -4,6 +4,8 @@ import {GlobalState} from '../../../GlobalState'
 import swal from 'sweetalert';
 import HashLoader from "react-spinners/HashLoader";
 import {useParams} from 'react-router-dom'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 const initialState = {
     product_id: '',
@@ -17,6 +19,10 @@ const initialState = {
 
 
 function CreateProduct() {
+
+    useEffect(() => {
+        AOS.init({});
+    })
 
     const state = useContext(GlobalState)
     const [product, setProduct] = useState(initialState)
@@ -187,13 +193,13 @@ function CreateProduct() {
     }
 
     return (
-        <>
-        <div className="container mt-100">
-        <h2 className="page-title mt-200">Manage Product</h2>
+        <React.Fragment>
+        <div data-aos="zoom-in" className="container mt-100">
+        <h2 data-aos="fade-in" className="page-title mt-200">Manage Product</h2>
 
             <form className="bg-white p-50 border-radius" onSubmit={handleSubmit}>
             <label htmlFor="file">Image</label>
-            <div className="upload">
+            <div data-aos="zoom-in" data-aos-delay="300" className="upload">
                 <input className="form-control" type="file" name="file" id="file_up" onChange={handleUpload} />
                 
                 {
@@ -209,32 +215,32 @@ function CreateProduct() {
                 
             </div>
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="product_id">Product ID</label>
                   <input className="form-control" type="text" name="product_id" id="product_id" required value={product.product_id} onChange={handleChangeInput} disabled={product._id} />
                </div> 
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="title">Title</label>
                   <input className="form-control" type="text" name="title" id="title" required value={product.title} onChange={handleChangeInput} />
                </div> 
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="price">Price</label>
                   <input className="form-control" type="number" name="price" id="price" required value={product.price} onChange={handleChangeInput} />
                </div> 
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="description">Description</label>
                   <textarea className="form-control" type="text" name="description" id="description" required value={product.description} rows="5" onChange={handleChangeInput} />
                </div> 
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="content">Content</label>
                   <textarea className="form-control" type="text" name="content" id="content" required value={product.content} rows="7" onChange={handleChangeInput} />
                </div> 
 
-               <div className="form-group">
+               <div data-aos="zoom-in" className="form-group">
                   <label htmlFor="category">Category</label>
                   <select className="form-control" name="category" value={product.category} required onChange={handleChangeInput}>
                       {
@@ -248,13 +254,13 @@ function CreateProduct() {
                </div> 
 
                 <div className="form-group text-center">
-                      <button className="form_btn" type="submit">{onEdit ? "Update Product" : "Create Product"}</button>
+                      <button data-aos="zoom-in" className="form_btn" type="submit">{onEdit ? "Update Product" : "Create Product"}</button>
                 </div>
 
             </form>
 
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

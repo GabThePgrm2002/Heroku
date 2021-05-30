@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {useParams} from 'react-router-dom'
 import {GlobalState} from '../../../GlobalState'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 function OrderDetails() {
 
@@ -11,6 +13,7 @@ function OrderDetails() {
     const params = useParams()
 
     useEffect(() =>{
+        AOS.init({});
         if(params.id){
             history.forEach(item =>{
                 if(item._id === params.id) setOrderDetails(item)
@@ -23,9 +26,9 @@ function OrderDetails() {
     if(orderDetails.length === 0) return null
 
     return (
-        <>
+        <React.Fragment>
         <h2 className="text-center m150 page-title">Order Details</h2>
-        <div className="order-details-page container">
+        <div data-aos="zoom-in" className="order-details-page container">
             <div className="container text-center">
                 <h2 className="title-green-shadow">Shipping Info</h2>
                 <table className="text-center">
@@ -75,7 +78,7 @@ function OrderDetails() {
                 </table>
             </div>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

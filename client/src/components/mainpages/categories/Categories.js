@@ -1,12 +1,18 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import swal from 'sweetalert';
 import axios from 'axios'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 function Categories() {
+    
+    useEffect(() => {
+        AOS.init({});
+    })
 
     const state = useContext(GlobalState)
     const [categories] = state.categoriesAPI.categories
@@ -84,21 +90,21 @@ function Categories() {
 
 
     return (
-        <>
+        <React.Fragment>
         <div className="container mt-100">
-        <h2 className="page-title mt-200">Manage Categories</h2>
-            <form className="bg-white p-50 border-radius" onSubmit={createCategory}>
+        <h2 data-aos="fade-in" className="page-title mt-200">Manage Categories</h2>
+            <form data-aos="zoom-in" className="bg-white p-50 border-radius" onSubmit={createCategory}>
                 <div className="form-group">
                     <label htmlFor="category">Category</label>
                     <input className="form-control" type="text" name="category" value={category} required onChange={e => setCategory(e.target.value)} />
                 </div>
-                    <div className="form-group text-center">
+                    <div data-aos="zoom-in" data-aos-delay="300" className="form-group text-center">
                     <button className="form_btn" type="submit">{onEdit ? "Update Category": "Create Category"}</button>
                     </div>
             </form>
         </div>
 
-        <div className="container bg-white mt-100 text-center p-50 border-radius">
+        <div data-aos="zoom-in" className="container bg-white mt-100 text-center p-50 border-radius">
             <h2 className="mt20">Categories List</h2>
             <table>
                 <thead>
@@ -126,7 +132,7 @@ function Categories() {
                 </tbody>
             </table>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

@@ -35,12 +35,12 @@ function App() {
             </div>
           <HashLoader color={color} loading={loading} size={150} /> 
           </div> :
-        <>  
-          <Header />
+        <div>
+             <Header />
           <Pages />
           <Footer />
-          </>
-        }
+        </div>
+      }
 
       </div>
       </Router>

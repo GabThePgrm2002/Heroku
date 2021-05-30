@@ -1,7 +1,13 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {GlobalState} from '../../../GlobalState';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 function Filters() {
+
+    useEffect(() => {
+        AOS.init({duration: 750})
+    })
 
     const state = useContext(GlobalState);
     const [categories] = state.categoriesAPI.categories
@@ -19,8 +25,8 @@ function Filters() {
     }
 
     return (
-        <>
-        <div className="filter-menu row">
+        <React.Fragment>
+        <div data-aos="fade-up" className="filter-menu row">
             <div className="col-lg-3 filter-col">
             <p>Filters:</p>
             <select name="category" value={category} onChange={handleCategory}>
@@ -50,7 +56,7 @@ function Filters() {
             </select>
             </div>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

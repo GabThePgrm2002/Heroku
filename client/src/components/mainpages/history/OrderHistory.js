@@ -4,15 +4,19 @@ import {Link} from 'react-router-dom'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 function OrderHistory() {
+
+    useEffect(() => {
+        AOS.init({});
+      })
 
     const state = useContext(GlobalState)
     const [history, setHistory] = state.userAPI.history
     const [isAdmin] = state.userAPI.isAdmin
     const [token] = state.token
-
-
 
     useEffect(() =>{
         if(token){
@@ -34,9 +38,9 @@ function OrderHistory() {
     }, [token, isAdmin, setHistory])
 
     return (
-        <>
-            <h2 className="text-center m150 page-title">Orders History</h2>
-        <div className="history-page container">
+        <React.Fragment>
+            <h2 data-aos="fade-in" className="text-center m150 page-title">Orders History</h2>
+        <div data-aos="zoom-in" className="history-page container">
             <h2 className="mt20">You have {history.length} orders</h2>
 
             <div className="container text-center">
@@ -65,7 +69,7 @@ function OrderHistory() {
                 </table>
             </div>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 

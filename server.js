@@ -31,7 +31,7 @@ app.use('/api', require('./routes/paymentRouter'));
 
 // DB Connection
 
-const URI = process.env.MONGO_DB_URL;
+const URI = "mongodb+srv://root:02Gab1004@cluster0.xmseb.mongodb.net/ARVAZON?retryWrites=true&w=majority";
 
 mongoose.connect(URI, {
     useCreateIndex: true,

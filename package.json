@@ -1,9 +1,6 @@
 {
   "name": "arvazon",
   "version": "1.0.0",
-  "engines": {
-    "node": "14.x"
-  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -14,7 +11,8 @@
     "client-install": "cd client && npm install",
     "install-all": "concurrently \"npm run server-install\" \"npm run client-install\"",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "cd client && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install && npm run build",
+    "build": "npm run build"
   },
   "keywords": [],
   "author": "",
@@ -30,8 +28,7 @@
     "express-fileupload": "^1.2.1",
     "fs": "*",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.12.3",
-    "stripe": "^8.145.0"
+    "mongoose": "^5.12.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

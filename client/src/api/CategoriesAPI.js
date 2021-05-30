@@ -12,7 +12,7 @@ function CategoriesAPI(token) {
             console.log(res)
             setCategories(res.data)
         }
-
+        
         getCategories()
     }, [callback])
 

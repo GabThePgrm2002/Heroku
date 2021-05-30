@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import RegisterImg from './register.svg'
 import swal from 'sweetalert';
+import AOS from 'aos';
+import "aos/dist/aos.css";
 
 
 
@@ -12,6 +14,10 @@ function Register() {
         name: '',
         email: '',
         password: ''
+    })
+
+    useEffect(() => {
+        AOS.init({duration: 750})
     })
 
     const onChangeInput = e =>{
@@ -36,32 +42,32 @@ function Register() {
     }
 
     return (
-        <>
-           <h2 className="text-center page-title m150">Registration Page</h2>
-        <div className="register m150">
+        <React.Fragment>
+           <h2 data-aos="fade-in" className="text-center page-title m150">Registration Page</h2>
+        <div data-aos="zoom-in" className="register m150">
             <form onSubmit={registerSubmit}>
             <div className="container">
         <img className="img_auth" src={RegisterImg} alt="" />
-                    <div className="form-group">
+                    <div data-aos="zoom-in" data-aos-delay="300" className="form-group">
                     <label for="name">Name</label>
                     <input type="text" class="form-control" id="name" name="name" value={user.name} onChange={onChangeInput} required />
                 </div>
-                <div className="form-group">
+                <div data-aos="zoom-in" data-aos-delay="500" className="form-group">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" id="email" name="email" value={user.email} onChange={onChangeInput} required />
                 </div>
-                <div class="form-group">
+                <div data-aos="zoom-in" class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" value={user.password} onChange={onChangeInput} required autoComplete="on" />
                 </div>
                 <div className="row btns">
-                    <button type="submit" className="form_btn">Register</button>
-                    <Link to="/login" className="form_link">Login</Link>
+                    <button data-aos="fade-up" type="submit" className="form_btn">Register</button>
+                    <Link data-aos="fade-up" to="/login" className="form_link">Login</Link>
                 </div>
                     </div>  
             </form>
         </div>
-        </>
+        </React.Fragment>
     )
 }
 
